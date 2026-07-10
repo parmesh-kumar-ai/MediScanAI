@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Bar, BarChart, Cell, XAxis, YAxis } from "recharts"
+import { Bar, BarChart, Cell, XAxis, YAxis, Label } from "recharts"
 import type { SymptomAnalysisResult } from "@/app/actions/analyze-symptoms"
 import { AlertCircle, Award, BookOpen, Sparkles } from "lucide-react"
 
@@ -99,11 +99,11 @@ export function SymptomResults({ result }: { result: SymptomAnalysisResult }) {
             config={{ probability: { label: "Probability %", color: "var(--chart-1)" } }}
             className="h-[520px] w-full"
           >
-            <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 24 }}>
+            <BarChart data={chartData} layout="vertical" margin={{ left: 8, right: 80 }}>
               <XAxis type="number" tickFormatter={(v) => `${v}%`} fontSize={11} />
               <YAxis type="category" dataKey="disease" width={130} fontSize={11} interval={0} />
               <ChartTooltip content={<ChartTooltipContent />} />
-              <Bar dataKey="probability" radius={[0, 4, 4, 0]}>
+              <Bar dataKey="probability" radius={[0, 4, 4, 0]} label={{ position: 'right', fill: '#666', fontSize: 11, formatter: (v: number) => `${v}%` }}>
                 {chartData.map((entry, index) => (
                   <Cell
                     key={entry.disease}

@@ -235,7 +235,7 @@ export function DietPlanner() {
                     <XAxis dataKey="nutrient" fontSize={12} />
                     <YAxis fontSize={12} />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="grams" radius={[4, 4, 0, 0]}>
+                    <Bar dataKey="grams" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#666', fontSize: 12 }}>
                       {macroData.map((entry, index) => (
                         <Cell key={entry.nutrient} fill={MACRO_COLORS[index]} />
                       ))}

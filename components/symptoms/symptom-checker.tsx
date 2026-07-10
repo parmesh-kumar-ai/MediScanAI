@@ -3,9 +3,9 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { SYMPTOMS, SYMPTOM_CATEGORIES } from "@/lib/medical/symptoms"
 import { analyzeSymptoms, type SymptomAnalysisResult } from "@/app/actions/analyze-symptoms"
 import { SymptomResults } from "./symptom-results"
@@ -55,23 +55,44 @@ export function SymptomChecker() {
           </CardTitle>
         </CardHeader>
         <CardContent className="space-y-5">
-          {SYMPTOM_CATEGORIES.map((category) => (
-            <fieldset key={category}>
-              <legend className="mb-2 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
-                {category}
-              </legend>
-              <div className="space-y-1.5">
-                {SYMPTOMS.filter((s) => s.category === category).map((s) => (
-                  <div key={s.id} className="flex items-center gap-2">
-                    <Checkbox id={s.id} checked={selected.has(s.id)} onCheckedChange={() => toggle(s.id)} />
-                    <Label htmlFor={s.id} className="cursor-pointer text-sm font-normal">
-                      {s.label}
-                    </Label>
+          {SYMPTOM_CATEGORIES.map((category) => {
+            const categorySymptoms = SYMPTOMS.filter((s) => s.category === category)
+            return (
+              <div key={category} className="space-y-2">
+                <Label htmlFor={`symptom-select-${category}`} className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  {category}
+                </Label>
+                <Select value="" onValueChange={(id) => toggle(id)}>
+                  <SelectTrigger id={`symptom-select-${category}`} className="text-sm">
+                    <SelectValue placeholder="Select a symptom..." />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {categorySymptoms.map((s) => (
+                      <SelectItem key={s.id} value={s.id}>
+                        {s.label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+                {categorySymptoms.some((s) => selected.has(s.id)) && (
+                  <div className="space-y-1.5 rounded-md bg-secondary/50 p-2">
+                    {categorySymptoms.filter((s) => selected.has(s.id)).map((s) => (
+                      <div key={s.id} className="flex items-center justify-between text-sm">
+                        <span>{s.label}</span>
+                        <button
+                          onClick={() => toggle(s.id)}
+                          className="text-xs text-muted-foreground hover:text-destructive"
+                          aria-label={`Remove ${s.label}`}
+                        >
+                          ✕
+                        </button>
+                      </div>
+                    ))}
                   </div>
-                ))}
+                )}
               </div>
-            </fieldset>
-          ))}
+            )
+          })}
 
           {error && (
             <p className="text-sm text-destructive" role="alert">

@@ -12,6 +12,7 @@ import {
   Salad,
   Stethoscope,
   Info,
+  BookOpen,
   X,
 } from "lucide-react"
 import { authClient } from "@/lib/auth-client"
@@ -24,6 +25,7 @@ const NAV_ITEMS = [
   { href: "/symptoms", label: "Symptom Analysis", icon: Stethoscope },
   { href: "/reports", label: "Report Analyzer", icon: FileSearch },
   { href: "/diet", label: "Dietary Plans", icon: Salad },
+  { href: "/diseases", label: "Diseases", icon: BookOpen },
   { href: "/about", label: "About", icon: Info },
 ]
 
