@@ -32,7 +32,7 @@ Choose one of these options:
 - DigitalOcean (Managed Database)
 - Railway, Render, Heroku, etc.
 
-## Step 2: Add Environment Variable to Vercel
+## Step 2: Add Environment Variables to Vercel
 
 1. **Go to your Vercel Dashboard**
    - https://vercel.com/dashboard
@@ -48,7 +48,23 @@ Choose one of these options:
    - Environments: Select all (Production, Preview, Development)
    - Click "Save"
 
-4. **Redeploy**
+4. **Add the Authentication Secret** (IMPORTANT for Production)
+   - Name: `BETTER_AUTH_SECRET`
+   - Value: Generate a secure random string:
+     ```bash
+     # On macOS/Linux:
+     openssl rand -base64 32
+     
+     # On Windows (PowerShell):
+     [Convert]::ToBase64String([System.Security.Cryptography.RandomNumberGenerator]::GetBytes(32))
+     ```
+   - Paste the generated value
+   - Environments: Select all
+   - Click "Save"
+   
+   **Note**: The app will generate a temporary secret during development and build, but for production security, you MUST set this explicitly.
+
+5. **Redeploy**
    - Go to "Deployments" tab
    - Find your latest failed deployment
    - Click the three dots menu
@@ -63,12 +79,22 @@ Choose one of these options:
 
 ## Troubleshooting
 
+### BetterAuthError: "You are using the default secret"
+
+This warning appears during build if `BETTER_AUTH_SECRET` is not set. While it won't prevent deployment:
+- It will use a temporary secret during build
+- **For production**: You MUST set `BETTER_AUTH_SECRET` in environment variables
+- User sessions from development won't work in production
+- Sessions from preview deployments will be invalidated
+
+**Fix**: Add `BETTER_AUTH_SECRET` to Vercel environment variables (see Step 2 above)
+
 ### Still Getting "This page couldn't load"?
 
 1. **Check Vercel Logs**
    - Go to Deployments → Latest deployment → Logs
    - Look for any error messages
-   - Most common: `DATABASE_URL environment variable is not set`
+   - Common issues: `DATABASE_URL not set` or `BetterAuthError`
 
 2. **Verify Connection String**
    ```
