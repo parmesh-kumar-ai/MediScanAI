@@ -8,7 +8,7 @@ import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
-import { Bar, BarChart, XAxis, YAxis, Cell } from "recharts"
+import { Bar, BarChart, XAxis, YAxis, Cell, LabelList } from "recharts"
 import { DIET_DISEASES, getDietPlan, type DietPlan, type DietType } from "@/lib/medical/diet-plans"
 import { logDietPlanView } from "@/app/actions/history"
 import { Salad, Ban, UtensilsCrossed, PieChart } from "lucide-react"
@@ -235,7 +235,8 @@ export function DietPlanner() {
                     <XAxis dataKey="nutrient" fontSize={12} />
                     <YAxis fontSize={12} />
                     <ChartTooltip content={<ChartTooltipContent />} />
-                    <Bar dataKey="grams" radius={[4, 4, 0, 0]} label={{ position: 'top', fill: '#666', fontSize: 12 }}>
+                    <Bar dataKey="grams" radius={[4, 4, 0, 0]}>
+                      <LabelList dataKey="grams" position="top" fill="#666" fontSize={12} />
                       {macroData.map((entry, index) => (
                         <Cell key={entry.nutrient} fill={MACRO_COLORS[index]} />
                       ))}

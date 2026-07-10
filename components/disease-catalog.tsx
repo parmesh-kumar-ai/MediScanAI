@@ -78,7 +78,18 @@ export function DiseaseCatalog() {
               <CardContent className="space-y-4">
                 <div>
                   <h4 className="mb-2 font-semibold text-sm">Description</h4>
-                  <p className="text-sm leading-relaxed text-muted-foreground">{disease.description}</p>
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <p className="text-sm leading-relaxed text-muted-foreground flex-1">{disease.description}</p>
+                    {disease.image && (
+                      <div className="w-full md:w-1/3 aspect-video md:aspect-square relative rounded-md overflow-hidden bg-muted">
+                        <img 
+                          src={disease.image} 
+                          alt={`Illustration for ${disease.name}`}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className="rounded-lg bg-blue-50 p-4 dark:bg-blue-950">
@@ -146,6 +157,15 @@ export function DiseaseCatalog() {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
+                  {disease.symptomImage && (
+                    <div className="w-full h-48 relative rounded-md overflow-hidden bg-muted mb-4">
+                      <img 
+                        src={disease.symptomImage} 
+                        alt={`Symptoms of ${disease.name}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </div>
+                  )}
                   <div className="grid gap-2">
                     {Object.entries(disease.weights)
                       .sort(([, a], [, b]) => b - a)

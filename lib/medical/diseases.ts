@@ -8,6 +8,8 @@ export interface DiseaseProfile {
   weights: Record<string, number>
   precautions: string[]
   whenToSeekHelp: string
+  image?: string
+  symptomImage?: string
 }
 
 export const DISEASES: DiseaseProfile[] = [
@@ -34,6 +36,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek immediate care for very high blood sugar symptoms: extreme thirst, frequent urination with confusion, or fruity-smelling breath.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Hypertension",
@@ -57,6 +61,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek emergency care for blood pressure above 180/120, severe headache, chest pain, or vision changes.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Common Cold",
@@ -78,6 +84,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor if symptoms last more than 10 days, fever exceeds 39.4 C (103 F), or breathing becomes difficult.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Gastritis",
@@ -98,6 +106,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek care for vomiting blood, black stools, or severe persistent abdominal pain.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Cancer (General)",
@@ -121,6 +131,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor promptly for unexplained weight loss, persistent fatigue, unusual lumps, or non-healing sores.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Brain Stroke",
@@ -143,6 +155,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "CALL EMERGENCY SERVICES IMMEDIATELY for sudden face drooping, arm weakness, or speech difficulty (FAST).",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Heart Attack",
@@ -166,6 +180,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "CALL EMERGENCY SERVICES IMMEDIATELY for chest pain lasting more than a few minutes, especially with sweating, nausea, or shortness of breath.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Cardiac Arrest",
@@ -188,6 +204,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "CALL EMERGENCY SERVICES IMMEDIATELY for collapse, no pulse, or sudden loss of consciousness. Begin CPR.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Cataracts",
@@ -207,6 +225,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See an ophthalmologist when vision changes interfere with daily activities such as driving or reading.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Eczema",
@@ -226,6 +246,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor if skin becomes infected (weeping, crusting, pain) or itching disrupts sleep.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Glaucoma",
@@ -247,6 +269,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek emergency care for sudden severe eye pain, halos around lights, or rapid vision loss.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Macular Degeneration",
@@ -265,6 +289,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See an eye specialist promptly if straight lines appear wavy or central vision becomes dark or blurry.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Liver Damage",
@@ -288,6 +314,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek care urgently for yellowing skin/eyes, severe abdominal swelling, or confusion.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Tuberculosis",
@@ -311,6 +339,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor for a cough lasting over 3 weeks, coughing blood, night sweats, or unexplained weight loss.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Paralysis",
@@ -331,6 +361,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "CALL EMERGENCY SERVICES for sudden paralysis or numbness, especially on one side of the body.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Anemia",
@@ -354,6 +386,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor for persistent fatigue, pale skin, or shortness of breath during light activity.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Influenza",
@@ -377,6 +411,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek care for difficulty breathing, chest pain, persistent high fever, or dehydration.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Migraine",
@@ -398,6 +434,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek emergency care for the 'worst headache of your life', headache with fever and stiff neck, or after head injury.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Arthritis",
@@ -418,6 +456,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor for joint pain with swelling and redness lasting more than a few days.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Asthma",
@@ -439,6 +479,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek emergency care if a rescue inhaler does not relieve symptoms or if lips/fingernails turn blue.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Conjunctivitis",
@@ -459,6 +501,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor for eye pain, vision changes, intense redness, or symptoms not improving within a week.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Melanoma",
@@ -478,6 +522,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a dermatologist promptly for moles that are asymmetric, have irregular borders, color changes, diameter over 6mm, or are evolving.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Psoriasis",
@@ -498,6 +544,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor if psoriasis covers large areas, involves joints, or does not respond to treatment.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Brain Tumour",
@@ -522,6 +570,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek urgent care for new seizures, progressively worsening morning headaches, or headaches with vomiting and vision changes.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Lung Cancer",
@@ -544,6 +594,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor promptly for a persistent cough over 3 weeks, coughing blood, or unexplained chest pain and weight loss.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Breast Cancer",
@@ -566,6 +618,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor promptly for any new breast lump, nipple discharge, skin dimpling, or persistent breast changes.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Colorectal Cancer",
@@ -589,6 +643,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor promptly for blood in stool, persistent changes in bowel habits, or unexplained abdominal pain and weight loss.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Leukemia (Blood Cancer)",
@@ -613,6 +669,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor promptly for frequent infections, easy bruising or bleeding, persistent fever, or bone pain.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Prostate Cancer",
@@ -635,6 +693,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor for difficulty urinating, blood in urine or semen, or persistent pelvic and lower back discomfort.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Kidney Stones",
@@ -659,6 +719,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek urgent care for severe flank pain with fever, vomiting, blood in urine, or inability to pass urine.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Gallstones",
@@ -681,6 +743,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "Seek urgent care for intense right-upper abdominal pain lasting hours, especially with fever or yellowing skin.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Acne",
@@ -701,6 +765,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a dermatologist for painful cystic acne, scarring, or acne not improving with over-the-counter care.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Fungal Skin Infection",
@@ -721,6 +787,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a doctor if the rash spreads, does not improve after 2 weeks of antifungal treatment, or you have diabetes or a weak immune system.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
   {
     name: "Vitiligo",
@@ -740,6 +808,8 @@ export const DISEASES: DiseaseProfile[] = [
     ],
     whenToSeekHelp:
       "See a dermatologist when white patches first appear or spread rapidly, to discuss repigmentation options.",
+    image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80',
+    symptomImage: 'https://images.unsplash.com/photo-1584036561566-baf8f5f1b144?w=800&q=80',
   },
 ]
 

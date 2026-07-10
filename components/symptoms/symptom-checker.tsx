@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
 import { SYMPTOMS, SYMPTOM_CATEGORIES } from "@/lib/medical/symptoms"
 import { analyzeSymptoms, type SymptomAnalysisResult } from "@/app/actions/analyze-symptoms"
 import { SymptomResults } from "./symptom-results"
@@ -62,18 +62,26 @@ export function SymptomChecker() {
                 <Label htmlFor={`symptom-select-${category}`} className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
                   {category}
                 </Label>
-                <Select value="" onValueChange={(id) => toggle(id)}>
-                  <SelectTrigger id={`symptom-select-${category}`} className="text-sm">
-                    <SelectValue placeholder="Select a symptom..." />
-                  </SelectTrigger>
-                  <SelectContent>
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="outline" className="w-full justify-between" id={`symptom-select-${category}`}>
+                      Select symptoms...
+                      <span className="text-muted-foreground text-xs">{categorySymptoms.filter((s) => selected.has(s.id)).length} selected</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent className="w-[300px]">
                     {categorySymptoms.map((s) => (
-                      <SelectItem key={s.id} value={s.id}>
+                      <DropdownMenuCheckboxItem
+                        key={s.id}
+                        checked={selected.has(s.id)}
+                        onCheckedChange={() => toggle(s.id)}
+                        onSelect={(e) => e.preventDefault()}
+                      >
                         {s.label}
-                      </SelectItem>
+                      </DropdownMenuCheckboxItem>
                     ))}
-                  </SelectContent>
-                </Select>
+                  </DropdownMenuContent>
+                </DropdownMenu>
                 {categorySymptoms.some((s) => selected.has(s.id)) && (
                   <div className="space-y-1.5 rounded-md bg-secondary/50 p-2">
                     {categorySymptoms.filter((s) => selected.has(s.id)).map((s) => (

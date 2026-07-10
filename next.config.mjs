@@ -3,10 +3,8 @@ const nextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  experimental: {
-    serverActions: {
-      bodySizeLimit: '30mb',
-    },
+  serverActions: {
+    bodySizeLimit: '30mb',
   },
   images: {
     unoptimized: true,
