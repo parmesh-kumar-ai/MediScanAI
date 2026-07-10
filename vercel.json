@@ -1,19 +1,5 @@
 {
   "buildCommand": "pnpm build",
-  "devCommand": "pnpm dev",
   "installCommand": "pnpm install",
-  "framework": "nextjs",
-  "nodeVersion": "18.x",
-  "env": {
-    "DATABASE_URL": {
-      "description": "PostgreSQL database connection string (required)",
-      "required": true
-    },
-    "BETTER_AUTH_URL": {
-      "description": "Custom authentication base URL (optional - auto-detected for Vercel)",
-      "required": false
-    }
-  },
-  "redirects": [],
-  "rewrites": []
+  "framework": "nextjs"
 }
