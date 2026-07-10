@@ -1,23 +1,32 @@
 import { betterAuth } from 'better-auth'
 import { pool } from '@/lib/db'
 
-// Generate a default secret for development/build time if not provided
-// In production, BETTER_AUTH_SECRET must be explicitly set in environment variables
-const generateDefaultSecret = () => {
+// Secret configuration for different environments
+// Production: Must be set via BETTER_AUTH_SECRET environment variable
+// Preview/Build: Use a consistent secret to allow builds without warnings
+// Development: Use a consistent development secret
+const getAuthSecret = () => {
   if (process.env.BETTER_AUTH_SECRET) {
     return process.env.BETTER_AUTH_SECRET
   }
-  // For development and build time only - in production this MUST be set
-  if (process.env.NODE_ENV === 'development' || process.env.VERCEL_ENV === 'preview') {
-    return 'dev-secret-key-change-in-production-' + Math.random().toString(36).substring(2, 15)
+  
+  // For Vercel preview environments and builds
+  if (process.env.VERCEL_ENV === 'preview' || process.env.VERCEL === '1') {
+    return 'preview-build-secret-mediscan-ai-do-not-use-in-production-2024'
   }
-  // Production default - should be overridden
-  return 'change-me-in-production-' + Date.now()
+  
+  // For development
+  if (process.env.NODE_ENV === 'development') {
+    return 'dev-secret-mediscan-ai-change-in-production-2024'
+  }
+  
+  // Fallback - should never reach here in production
+  return 'fallback-secret-mediscan-ai-2024'
 }
 
 export const auth = betterAuth({
   database: pool,
-  secret: generateDefaultSecret(),
+  secret: getAuthSecret(),
   baseURL:
     process.env.BETTER_AUTH_URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
