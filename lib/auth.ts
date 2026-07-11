@@ -37,6 +37,13 @@ export const auth = betterAuth({
   emailAndPassword: {
     enabled: true,
     autoSignIn: true,
+    sendResetPassword: async ({ user, url, token }, request) => {
+      // Mock email sending. In a real app, you would use Resend, SendGrid, etc.
+      console.log(`\n======================================================`)
+      console.log(`PASSWORD RESET REQUESTED FOR: ${user.email}`)
+      console.log(`CLICK HERE TO RESET: ${url}`)
+      console.log(`======================================================\n`)
+    },
   },
   trustedOrigins: [
     ...(process.env.NODE_ENV === 'development'
